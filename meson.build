@@ -19,7 +19,7 @@ cc = meson.get_compiler('c')
 
 lib_args = []
 
-foreach f : ['explicit_bzero', 'pathconf']
+foreach f : ['explicit_bzero', 'explicit_memset', 'pathconf']
   if cc.has_function(f)
     lib_args += '-DHAVE_@0@'.format(f.to_upper())
   endif
