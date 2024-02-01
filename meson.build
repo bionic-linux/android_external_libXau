@@ -70,6 +70,7 @@ test(
     'Autest.c',
     link_with : lib,
     include_directories : 'include',
+    dependencies : dep_xproto,
   )
 )
 
