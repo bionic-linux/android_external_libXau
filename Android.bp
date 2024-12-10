@@ -1,0 +1,32 @@
+cc_library {
+    name: "libXau",
+    cflags: [
+        "-D_GNU_SOURCE",
+        "-D__EXTENSIONS__",
+        "-DHAVE_UNISTD_H"
+    ],
+    srcs: [
+        "AuDispose.c",
+        "AuFileName.c",
+        "AuGetAddr.c",
+        "AuGetBest.c",
+        "AuLock.c",
+        "AuRead.c",
+        "AuUnlock.c",
+        "AuWrite.c",
+    ],
+    header_libs: ["xorgproto"],
+    export_header_lib_headers: ["xorgproto"],
+    export_include_dirs: ["include"],
+}
+
+cc_binary {
+    name: "autest",
+    cflags: [
+        "-Wno-unused-parameter",
+    ],
+    srcs: [
+        "Autest.c",
+    ],
+    shared_libs: ["libXau"],
+}
